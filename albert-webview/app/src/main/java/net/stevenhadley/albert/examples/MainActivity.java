@@ -76,7 +76,7 @@ public class MainActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.http:
+            case R.id.refresh:
                 webView.loadUrl(URL);
                 break;
         }
