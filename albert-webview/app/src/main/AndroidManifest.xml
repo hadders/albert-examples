@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.stevenhadley.albert.examples" >
+    package="net.stevenhadley.albert.examples">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <meta-data android:name="application-type" android:value="vaan" />
-    <meta-data android:name="ip-addresses" android:value="0.0.0.0/0" />
+    <meta-data
+        android:name="application-type"
+        android:value="vaan" />
+    <meta-data
+        android:name="ip-addresses"
+        android:value="0.0.0.0/0" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name="net.stevenhadley.albert.examples.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

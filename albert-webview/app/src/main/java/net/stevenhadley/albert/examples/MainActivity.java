@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-    public static final String URL = "http://stevenhadley.net/";
-    WebView webView;
+    public static final String URL = "https://my.kounta.com";
+    private WebView webView;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -28,10 +28,13 @@ public class MainActivity extends Activity {
 
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
+        settings.setDatabaseEnabled(true);
+        settings.setDatabasePath("/data/data/" + getPackageName() + "/databases/");
         settings.setDomStorageEnabled(true);
         settings.setAppCacheEnabled(true);
-        settings.setDatabaseEnabled(true);
-        settings.setAllowContentAccess(true);
+        settings.setSaveFormData(true);
+        settings.setJavaScriptCanOpenWindowsAutomatically(true);
+
 
         //If spoofing to test
         //settings.setUserAgentString("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36");
