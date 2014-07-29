@@ -2,12 +2,14 @@ package net.stevenhadley.albert.examples;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
+import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
@@ -28,15 +30,26 @@ public class MainActivity extends Activity {
 
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
-        settings.setDatabaseEnabled(true);
-        settings.setDatabasePath("/data/data/" + getPackageName() + "/databases/");
         settings.setDomStorageEnabled(true);
         settings.setAppCacheEnabled(true);
         settings.setSaveFormData(true);
         settings.setJavaScriptCanOpenWindowsAutomatically(true);
 
+        settings.setDatabaseEnabled(true);
+        String databasePath = this.getApplicationContext().getDir("database",
+                Context.MODE_PRIVATE).getPath();
+        settings.setDatabasePath(databasePath);
 
-        //If spoofing to test
+        webView.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public void onExceededDatabaseQuota(String url, String databaseIdentifier, long currentQuota, long estimatedSize,
+                                                long totalUsedQuota, WebStorage.QuotaUpdater quotaUpdater) {
+                quotaUpdater.updateQuota(estimatedSize * 2);
+            }
+        });
+
+
+        //FIXME: Remove. If spoofing a User Agent use this.
         //settings.setUserAgentString("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36");
 
 
