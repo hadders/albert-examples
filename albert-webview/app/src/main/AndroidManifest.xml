@@ -7,7 +7,7 @@
 
     <meta-data
         android:name="application-type"
-        android:value="vaan" />
+        android:value="vaa_merchant" />
     <meta-data
         android:name="ip-addresses"
         android:value="0.0.0.0/0" />
