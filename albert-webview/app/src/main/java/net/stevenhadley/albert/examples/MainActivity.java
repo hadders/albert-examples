@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-    public static final String URL = "https://my.kounta.com";
+    public static final String URL = "https://www.google.com";
     private WebView webView;
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -47,11 +47,6 @@ public class MainActivity extends Activity {
                 quotaUpdater.updateQuota(estimatedSize * 2);
             }
         });
-
-
-        //FIXME: Remove. If spoofing a User Agent use this.
-        //settings.setUserAgentString("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36");
-
 
         webView.setWebViewClient(new WebViewClient() {
 
